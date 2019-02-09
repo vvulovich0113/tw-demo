@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -19,7 +20,24 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 
+        'name', 'email', 'password'
     ];
+    
+    // public function getAllUsers(){
+
+    //     $where = [
+    //         ['users_id','<>',Auth::id()]
+    //     ];
+
+    //     return $where;
+    // }   
+
+    public function follows()
+    {
+        return $this->hasmany('App\Follow','user_id','id');
+        //hasmany(紐ずけたいテーブル,紐ずけたいID受,紐ずけたいID主)
+        // return $this->hasmany('App\Follow','user_id','id')
+        // ->where(['follows.user_id' => Auth::id()]);
+    }
 
 }    

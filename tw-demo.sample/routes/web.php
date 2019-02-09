@@ -11,16 +11,28 @@
 |
 */
 
-Route::get('/create','UserController@create');
-Route::post('/store','UserController@store');
-Route::get('/','UserController@index');
-Route::get('/edit/{id}','UserController@edit');
-Route::post('/update','UserController@update');
-//Route::get('/delete/{id}','UserController@getDelete');
-Route::post('/delete','UserController@delete');
-Route::get('/alldelete','UserController@allDelete');
 
-Route::post('/copy','UserController@copy');
+Auth::routes();
+
+//トップページ Homeコントローラー 
+
+Route::get('/', 'HomeController@index');
+
+//ツイートを保存する Tweetコントローラー
+
+Route::post('/tweet','TweetController@update');
+
+//ユーザー一覧 Userコントローラー
+
+Route::get('/users','UserController@index');
+
+//フォローを実行する Userコントローラー
+
+Route::post('/users/follow','UserController@follow');
+
+Route::get('/users','UserController@index')->name('user_list');
+
+Route::post('/users/follow','UserController@follow');
 
 
 
@@ -31,3 +43,7 @@ Route::post('/copy','UserController@copy');
 //Route::get('/', function () {
   //  return view('welcome');
 //
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
