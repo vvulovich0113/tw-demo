@@ -10,6 +10,8 @@
     <title>{{ config('app.name', 'Twitter Clone') }}</title>
 
 
+
+
     <!-- <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script>
 
@@ -72,7 +74,7 @@
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/modaal.min.css') }}" rel="stylesheet" >
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style.css') }}?var=2" rel="stylesheet">
 
 <!-- Bootstrap -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->

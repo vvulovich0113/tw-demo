@@ -35,6 +35,14 @@ Route::get('/users','UserController@index')->name('user_list');
 Route::post('/users/follow','UserController@follow');
 
 
+Route::post('/users/deleteFollowers','UserController@deleteFollowers');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+
+Route::get('/edit_profile', 'ProfileController@editIndex')->name('edit_profile');
+
+Route::post('/edit/update','ProfileController@update');
+
 
 //Route::get('/edit','UserController@edit');
 
@@ -47,3 +55,4 @@ Route::post('/users/follow','UserController@follow');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+

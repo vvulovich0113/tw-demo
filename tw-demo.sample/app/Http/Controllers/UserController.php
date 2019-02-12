@@ -54,11 +54,7 @@ class UserController extends Controller
         //$follow_list = [ 2=>1,3=>1,4=>1,1=>1 ];
 
 
-        //ここからはview側
-
-
-
-    	//$users = User::getAllUsers();
+        
 
        
 
@@ -82,5 +78,15 @@ class UserController extends Controller
    		return redirect()->route('user_list');
     
 
+    }
+
+    public function deleteFollowers(Request $request)
+    {
+        $target = Follow::where('user_id',Auth::id())->where('follow_id',$request->followId);
+
+        $target->delete();
+
+        return redirect()->route('user_list');
+    
     }
 }

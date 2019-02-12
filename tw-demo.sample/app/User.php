@@ -20,17 +20,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'name', 'email', 'password','location','age','company_school'
     ];
-    
-    // public function getAllUsers(){
-
-    //     $where = [
-    //         ['users_id','<>',Auth::id()]
-    //     ];
-
-    //     return $where;
-    // }   
+   
 
     public function follows()
     {
