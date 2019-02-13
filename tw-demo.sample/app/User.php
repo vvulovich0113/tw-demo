@@ -28,8 +28,7 @@ class User extends Authenticatable
     {
         return $this->hasmany('App\Follow','user_id','id');
         //hasmany(紐ずけたいテーブル,紐ずけたいID受,紐ずけたいID主)
-        // return $this->hasmany('App\Follow','user_id','id')
-        // ->where(['follows.user_id' => Auth::id()]);
+        
     }
 
 }    

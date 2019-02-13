@@ -28,7 +28,8 @@ class ProfileController extends Controller
 	}
 
 	public function update( Request $request )
-	{
+	{	
+		//@FIXME jpgで指定しているが、要修正
 		$fileName = Auth::id().".jpg";
 
 		$request->file('photo')->move(
