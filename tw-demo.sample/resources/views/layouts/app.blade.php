@@ -115,7 +115,7 @@
                         </li>
                         @else
                         <li class="nav-item" style="display:flex; justify-content: center;align-items: center;">
-                           
+
                           <a class="navbar-brand" href="{{ route('user_list') }}" style="font-size:13px">
                             {{ __('ユーザ一覧') }}
                             <!-- {{ config('app.name', 'Laravel') }} -->
@@ -134,43 +134,49 @@
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
-                        </a>
+                            </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
-                        </form>
-                    </div>
-                </li>
+                            </form>
+                            <a class="dropdown-item" href="{{ route('profile') }}?user_id={{Auth::user()->id}}" style="font-size:13px">
+                            プロフィール
+                            </a>
+                        </div>
 
-                <li class="nav-item">
-                    <a href="#inline" class="inline btn btn-primary">ツイート</a>
-                    <?php                              
+
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#inline" class="inline btn btn-primary">ツイート</a>
+                        <?php                              
                                //{{Html::link('#inline', __('ツイート'), ['class' => "inline btn btn-primary"])}} 
-                    ?>     
-                </li>
+                        ?>     
+                    </li>
 
-                <!-- <a href="#inline" class="inline">Show</a> -->
-                <div id="inline" style="display:none;" >
-                    <h4>ツイートする</h4>
+                    <!-- <a href="#inline" class="inline">Show</a> -->
+                    <div id="inline" style="display:none;" >
+                        <h4>ツイートする</h4>
 
-                    <form method="POST" action="tweet/" accept-charset="UTF-8" id="formTweet" enctype="multipart/form-data">
-                        @csrf
-                        <textarea name="tweet" placeholder="今なにしてる？" rows="4" cols="50" class="form-control"></textarea>
-                        <button id="btnTweet" type="button" class="btn btn-primary" style="margin-top:10px;float:right;margin-bottom:10px">
-                            {{ __('ツイート') }}
-                        </button>
-                    </form>
+                        <form method="POST" action="tweet/" accept-charset="UTF-8" id="formTweet" enctype="multipart/form-data">
+                            @csrf
+                            <textarea name="tweet" placeholder="今なにしてる？" rows="4" cols="50" class="form-control"></textarea>
+                            <button id="btnTweet" type="button" class="btn btn-primary" style="margin-top:10px;float:right;margin-bottom:10px">
+                                {{ __('ツイート') }}
+                            </button>
+                        </form>
 
-                    <?php 
+                        <?php 
                                 // <!-- {!! Form::open(['id' => 'formTweet', 'route' => ['tweet_update','']]) !!} -->
-                    
+
                                 // {!! Form::open(['id' => 'formTweet', 'url' => 'tweet/', 'enctype' => 'multipart/form-data']) !!}
                                 //     {!! Form::textarea('body', null, ['name' => 'tweet', 'class' => 'form-control', 'placeholder' => '今なにしてる？', 'rows' => '4']) !!}
                                 //     <button id="btnTweet" type="button" class="btn btn-primary" style="margin-top:10px;float:right;margin-bottom:10px">
                                 //         {{ __('ツイート') }}
                                 //     </button>
                                 // {!! Form::close() !!}
-                    ?>
+                        ?>
                                 <!-- <form id="formTweet" method="" action="">
                                     <textarea name="tweetContents" class="form-control" rows="4" cols="40" placeholder="今なにしてる？"></textarea>
 
